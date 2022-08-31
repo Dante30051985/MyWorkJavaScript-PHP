@@ -1,6 +1,6 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/db.php';
-include $_SERVER['DOCUMENT_ROOT'].'/phpScript/translit.php';
+
 
 
 if (isset($_POST['photo']) && isset($_POST['folder']) && isset($_POST['path']) && isset($_POST['userid']))
