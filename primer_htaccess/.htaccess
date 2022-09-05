@@ -1,0 +1,27 @@
+RewriteEngine on
+RewriteRule ^id([0-9]+)$ /page.php?id=
+RewriteRule ^photoalbum/id([0-9]+)$ /phpScript/photoalbum.php?id=
+RewriteRule ^camera$ /phpScript/camera/camera.php
+RewriteRule ^camera/service /phpScript/camera/cameraService.php
+RewriteRule ^service/create /phpScript/camera/scMediaFolder.php
+RewriteRule ^service/rename /phpScript/camera/renameFolderMedia.php
+RewriteRule ^service/delete /phpScript/camera/deleteFolderMedia.php
+RewriteRule ^view/photo([0-9]+)$ /phpScript/viewMedia/viewmedia.php?file=		   
+RewriteRule ^view/video([0-9]+)$ /phpScript/viewMedia/viewmedia.php?file=		   
+
+RewriteCond %{HTTP_HOST} ^www.mobile.mysabrina.ru$ [NC]
+RewriteRule ^(.*)$ https://mobile.mysabrina.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.mysabrina.ru$ [NC]
+RewriteRule ^(.*)$ https://mysabrina.ru/$1 [R=301,L]
+
+RewriteCond %{ENV:HTTPS} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+ErrorDocument 400 /errors.php
+ErrorDocument 403 /errors.php
+ErrorDocument 404 /errors.php
+ErrorDocument 405 /errors.php
+ErrorDocument 408 /errors.php
+ErrorDocument 500 /errors.php
+ErrorDocument 502 /errors.php
+ErrorDocument 504 /errors.php
